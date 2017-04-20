@@ -1,0 +1,18 @@
+---
+# Deployment file for node cluster
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: node-deployment
+spec:
+    replicas: 2
+    template:
+        metadata:
+            labels:
+                app: node-app
+        spec:
+            containers:
+                - name: node 
+                  image: gcr.io/single-edition-159518/app:v1 
+                  ports:
+                    - containerPort: 80
